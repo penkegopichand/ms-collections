@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MS COLLECTIONS | Admin</title>
+<link rel="stylesheet" href="admin.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script defer src="admin.js"></script>
+</head>
+<body>
+<header class="top"><a class="brand" href="index.html">MS <span>COLLECTIONS</span></a><span>ADMIN PANEL</span><button id="logoutBtn" class="outline hidden">Log out</button></header>
+<main>
+<section id="setupNotice" class="notice hidden"></section>
+<section id="loginPanel" class="panel login">
+ <p class="eyebrow">PRIVATE ACCESS</p><h1>Admin <em>Login</em></h1><p>Sign in to manage the MS COLLECTIONS catalogue.</p>
+ <form id="loginForm"><label>Email<input id="email" type="email" required autocomplete="username"></label><label>Password<input id="password" type="password" required autocomplete="current-password"></label><button class="gold" type="submit">SIGN IN</button></form><p id="loginStatus" class="status" aria-live="polite"></p>
+</section>
+<section id="dashboard" class="hidden">
+ <div class="heading"><div><p class="eyebrow">COLLECTION MANAGEMENT</p><h1>Welcome to <em>MS COLLECTIONS</em></h1><p>Upload and manage the designs displayed in your public catalogue.</p></div></div>
+ <div class="stats"><div class="stat"><span>ACTIVE DESIGNS</span><strong id="totalCount">0</strong></div><div class="stat"><span>YOUR STORAGE</span><strong>MS PRODUCTS</strong></div></div>
+ <section class="panel"><h2>Bulk upload designs</h2>
+ <p>Select multiple photos. All selected photos will use the same category. Names will be generated from filenames unless you enter a common name prefix.</p>
+ <form id="productForm" class="product-form">
+ <label>Design name prefix (optional)<input id="designName" maxlength="60" placeholder="Example: New Bracelet"></label>
+ <label>Category<select id="category"><option>Chains</option><option>Bracelets</option><option>Other</option></select></label>
+ <label>Description (optional)<input id="description" maxlength="250" placeholder="Common description for these designs"></label>
+ <label>Select product photos<input id="photo" type="file" accept="image/jpeg,image/png,image/webp" multiple required></label>
+ <p class="hint">Select multiple JPEG, PNG or WebP images · Maximum 5 MB per image.</p>
+ <div id="filePreview" class="file-preview"></div>
+ <button class="gold" id="uploadBtn" type="submit">UPLOAD ALL DESIGNS</button><p id="uploadStatus" class="status" aria-live="polite"></p>
+ </form></section>
+ <section class="panel"><div class="list-head"><div><h2>Existing designs</h2><p>Update details or remove a design from the public catalogue.</p></div><button id="refreshBtn" class="outline">Refresh</button></div><div id="productList" class="product-list"></div><p id="listStatus" class="status"></p></section>
+</section>
+</main>
+<footer>MS COLLECTIONS · PRIVATE ADMINISTRATION</footer>
+</body></html>

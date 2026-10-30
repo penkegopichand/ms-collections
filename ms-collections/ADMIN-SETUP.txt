@@ -1,0 +1,19 @@
+MS COLLECTIONS ADMIN PANEL — SETUP
+
+1. Open supabase-config.js.
+2. In Supabase Dashboard, open Project Settings → API Keys.
+3. Copy the Project URL into MS_SUPABASE_URL.
+4. Copy the anon/public or publishable key into MS_SUPABASE_ANON_KEY.
+   NEVER use a service_role key or secret key in browser code.
+5. Save the file.
+6. Open admin.html through VS Code Live Server (not by double-clicking file://).
+7. Sign in with the admin email/password you created in Supabase Authentication.
+8. Upload designs. Images are stored in the public 'ms-products' bucket and product details in public.products.
+
+IMPORTANT:
+- Keep supabase-config.js in the same folder as admin.html.
+- The SQL setup from the previous step must have completed successfully.
+- Only users whose auth user UUID is in public.admin_users can upload/update/delete.
+- Public image URLs are intentionally readable so website visitors can view catalogue images.
+- Do not publish database passwords, secret keys, or service_role keys.
+- This admin page manages the cloud catalogue. The next integration step is to connect the public V5 gallery to the products table so newly uploaded designs appear automatically.
